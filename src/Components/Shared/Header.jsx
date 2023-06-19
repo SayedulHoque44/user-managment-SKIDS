@@ -5,7 +5,7 @@ const Header = () => {
   const navItems = (
     <>
       <li>
-        <Link to={"/"}>Add User</Link>
+        <Link to={"addUser"}>Add User</Link>
       </li>
     </>
   );
