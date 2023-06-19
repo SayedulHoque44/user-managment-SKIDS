@@ -6,7 +6,7 @@ import { skidsAxios } from "../../../Utilites/Hooks/useAxiosSecure";
 import SectionContainer from "../../Shared/SectionContainer";
 
 const AddUser = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -23,6 +23,7 @@ const AddUser = () => {
         setLoading(false);
         if (res.data.insertedId) {
           //   console.log(res.data);
+          reset();
           toast.success("User Added Successfull!");
           navigate("/");
         }

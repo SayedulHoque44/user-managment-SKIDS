@@ -12,3 +12,6 @@
 - React Hook Form
 - Axios.js
 - react-hot-toast
+- @tanstack/react-query
+- React icons
+- sweetalert2
