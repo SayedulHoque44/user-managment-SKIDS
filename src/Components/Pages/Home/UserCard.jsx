@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import { skidsAxios } from "../../../Utilites/Hooks/useAxiosSecure";
+import CardModal from "./CardModal";
 const UserCard = ({ user, refetch }) => {
   const { name, email, phone_number } = user;
+  const [updateUser, setUpdateUser] = useState(null);
+
+  //
 
   // Delete Fn
   const handleDelete = (user) => {
@@ -41,12 +45,30 @@ const UserCard = ({ user, refetch }) => {
         <p>{email}</p>
         <p>{phone_number}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-warning">
+          <a
+            href="#my_modal_8"
+            onClick={() => setUpdateUser(user)}
+            className="btn btn-warning hover:opacity-80">
             <FiEdit size={18} />{" "}
-          </button>
-          <button className="btn btn-error" onClick={() => handleDelete(user)}>
+          </a>
+          <button
+            className="btn btn-error hover:opacity-80"
+            onClick={() => handleDelete(user)}>
             <RiDeleteBin5Line size={18} />
           </button>
+          {/* The button to open modal */}
+
+          {/* Put this part before </body> tag */}
+
+          {updateUser && (
+            <CardModal
+              setUpdateUser={setUpdateUser}
+              refetch={refetch}
+              updateUser={updateUser}
+            />
+          )}
+
+          {/*  */}
         </div>
       </div>
     </div>
