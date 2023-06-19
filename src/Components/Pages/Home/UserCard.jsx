@@ -56,10 +56,7 @@ const UserCard = ({ user, refetch }) => {
             onClick={() => handleDelete(user)}>
             <RiDeleteBin5Line size={18} />
           </button>
-          {/* The button to open modal */}
-
-          {/* Put this part before </body> tag */}
-
+          {/* modal */}
           {updateUser && (
             <CardModal
               setUpdateUser={setUpdateUser}
@@ -67,7 +64,6 @@ const UserCard = ({ user, refetch }) => {
               updateUser={updateUser}
             />
           )}
-
           {/*  */}
         </div>
       </div>
